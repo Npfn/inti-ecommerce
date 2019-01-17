@@ -2,7 +2,7 @@ package com.intiformation.ecommerce.service;
 
 import com.intiformation.ecommerce.entity.Produit;
 
-public interface IAdminProduitService {
+public interface IAdminProduitService extends IInternauteBoutique {
 
 	
 	public void addProduit(Produit p, Long idCat);

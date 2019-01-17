@@ -17,7 +17,7 @@ import com.intiformation.ecommerce.entity.Role;
 import com.intiformation.ecommerce.entity.User;
 
 @Service("boutiqueService")
-public class BoutiqueServiceImpl implements IInternauteBoutique, IAdminCategoriesService, IAdminProduitService {
+public class BoutiqueServiceImpl implements IAdminCategoriesService {
 
 	@Autowired
 	private IBoutiqueDAO boutiqueDAO ;

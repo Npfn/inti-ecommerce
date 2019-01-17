@@ -4,7 +4,7 @@ import com.intiformation.ecommerce.entity.Categorie;
 import com.intiformation.ecommerce.entity.Role;
 import com.intiformation.ecommerce.entity.User;
 
-public interface IAdminCategoriesService {
+public interface IAdminCategoriesService extends IAdminProduitService {
 
 	
 	
