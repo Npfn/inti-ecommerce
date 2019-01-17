@@ -41,29 +41,29 @@ public class LigneCommande implements Serializable{
 	@Column(name="prix")
 	private int prix;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private GestionPanier panier;
+//	@OneToOne//(cascade = CascadeType.ALL)
+//	private GestionPanier panier;
 
 	
 	//ctor
-	public LigneCommande(LigneCommandeProduit id, Produit produit, Commande commande, int quantite, int prix,
-			GestionPanier panier) {
+	public LigneCommande(LigneCommandeProduit id, Produit produit, Commande commande, int quantite, int prix/*,
+			GestionPanier panier*/) {
 		super();
 		this.id = id;
 		this.produit = produit;
 		this.commande = commande;
 		this.quantite = quantite;
 		this.prix = prix;
-		this.panier = panier;
+//		this.panier = panier;
 	}
 
-	public LigneCommande(Produit produit, Commande commande, int quantite, int prix, GestionPanier panier) {
+	public LigneCommande(Produit produit, Commande commande, int quantite, int prix/*, GestionPanier panier*/) {
 		super();
 		this.produit = produit;
 		this.commande = commande;
 		this.quantite = quantite;
 		this.prix = prix;
-		this.panier = panier;
+//		this.panier = panier;
 	}
 
 	public LigneCommande() {
@@ -111,13 +111,13 @@ public class LigneCommande implements Serializable{
 		this.prix = prix;
 	}
 
-	public GestionPanier getPanier() {
-		return panier;
-	}
-
-	public void setPanier(GestionPanier panier) {
-		this.panier = panier;
-	}
+//	public GestionPanier getPanier() {
+//		return panier;
+//	}
+//
+//	public void setPanier(GestionPanier panier) {
+//		this.panier = panier;
+//	}
 
 	
 	

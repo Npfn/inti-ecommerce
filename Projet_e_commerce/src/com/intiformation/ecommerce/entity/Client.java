@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -34,7 +35,8 @@ public class Client implements Serializable{
 		@Column(name="tel")
 		private String tel;
 		
-		@OneToMany(cascade = CascadeType.ALL)
+		@OneToMany(mappedBy="client",cascade=CascadeType.ALL)
+//		@JoinColumn(name="commandeId", referencedColumnName="idCommande")
 		private List<Commande> commandes;
 
 		//ctor
