@@ -2,13 +2,13 @@ package com.intiformation.ecommerce.dao;
 
 import java.util.List;
 
-import com.intiformation.ecommerce.bean.Categorie;
-import com.intiformation.ecommerce.bean.Client;
-import com.intiformation.ecommerce.bean.Commande;
-import com.intiformation.ecommerce.bean.GestionPanier;
-import com.intiformation.ecommerce.bean.Produit;
-import com.intiformation.ecommerce.bean.Role;
-import com.intiformation.ecommerce.bean.User;
+import com.intiformation.ecommerce.entity.Categorie;
+import com.intiformation.ecommerce.entity.Client;
+import com.intiformation.ecommerce.entity.Commande;
+import com.intiformation.ecommerce.entity.GestionPanier;
+import com.intiformation.ecommerce.entity.Produit;
+import com.intiformation.ecommerce.entity.Role;
+import com.intiformation.ecommerce.entity.User;
 
 public interface IBoutiqueDAO {
 

@@ -7,14 +7,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.intiformation.ecommerce.bean.Categorie;
-import com.intiformation.ecommerce.bean.Client;
-import com.intiformation.ecommerce.bean.Commande;
-import com.intiformation.ecommerce.bean.GestionPanier;
-import com.intiformation.ecommerce.bean.LigneCommande;
-import com.intiformation.ecommerce.bean.Produit;
-import com.intiformation.ecommerce.bean.Role;
-import com.intiformation.ecommerce.bean.User;
+import com.intiformation.ecommerce.entity.Categorie;
+import com.intiformation.ecommerce.entity.Client;
+import com.intiformation.ecommerce.entity.Commande;
+import com.intiformation.ecommerce.entity.GestionPanier;
+import com.intiformation.ecommerce.entity.Produit;
+import com.intiformation.ecommerce.entity.Role;
+import com.intiformation.ecommerce.entity.User;
 
 
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
@@ -116,7 +115,7 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 	@Override
 	public void attribuerRole(Role r, Long userID) {
 		User u = em.find(User.class, userID);
-		u.getRole.add(r);
+		u.getRole().add(r);
 		em.persist(r);
 		
 	}
@@ -126,8 +125,8 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 		em.persist(cld);
 		Commande c  = new Commande();
 		c.setDateCommande( new Date());
-		c.setItems(p.getItems());
-		for( LigneCommande lc:p.getItems()){
+		c.setLigneCommandes(p.getLigneCommandes());
+		for( LigneCommande lc:p.getLigneCommandes()){
 			em.persist(lc);
 			
 		}
