@@ -6,6 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.intiformation.ecommerce.dao.IBoutiqueDAO;
+
+import com.intiformation.ecommerce.entity.Categorie;
+import com.intiformation.ecommerce.entity.Client;
+import com.intiformation.ecommerce.entity.Commande;
+import com.intiformation.ecommerce.entity.GestionPanier;
+import com.intiformation.ecommerce.entity.Produit;
+import com.intiformation.ecommerce.entity.Role;
+import com.intiformation.ecommerce.entity.User;
 
 @Service("boutiqueService")
 public class BoutiqueServiceImpl implements IBoutiqueService {
@@ -144,7 +153,5 @@ public class BoutiqueServiceImpl implements IBoutiqueService {
 		return boutiqueDAO.enregistrerCommande(gp, c) ;
 	}
 
-	
-	
 	
 }//fin classe
