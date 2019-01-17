@@ -11,6 +11,7 @@ import com.intiformation.ecommerce.entity.Categorie;
 import com.intiformation.ecommerce.entity.Client;
 import com.intiformation.ecommerce.entity.Commande;
 import com.intiformation.ecommerce.entity.GestionPanier;
+import com.intiformation.ecommerce.entity.LigneCommande;
 import com.intiformation.ecommerce.entity.Produit;
 import com.intiformation.ecommerce.entity.Role;
 import com.intiformation.ecommerce.entity.User;
