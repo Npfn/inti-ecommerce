@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -47,11 +49,12 @@ public class Produit implements Serializable{
 	@Column(name="photo")
 	private String photo;
 	
-//	@ManyToMany(cascade = CascadeType.ALL)
+//	@ManyToMany(mappedBy="produits",cascade=CascadeType.ALL)
 //	private List<Commande> commandes;
 	
-	@OneToOne(cascade = CascadeType.ALL) //YU Manytoone
-	@Column(name="categorie")
+	@ManyToOne//(cascade = CascadeType.ALL) //YU Manytoone
+//	@Column(name="categorie")
+	@JoinColumn(name="categorieId", referencedColumnName="idCategorie")
 	private Categorie categorie ;
 	
 	//ctor
@@ -61,7 +64,7 @@ public class Produit implements Serializable{
 
 
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo, List<Commande> commandes, Categorie categorie) {
+			boolean selectionne, String photo,/* List<Commande> commandes, */Categorie categorie) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -77,7 +80,7 @@ public class Produit implements Serializable{
 
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne, String photo,
-			List<Commande> commandes) {
+			/*List<Commande> commandes,*/ Categorie categorie) {
 		super();
 		this.designation = designation;
 		this.description = description;

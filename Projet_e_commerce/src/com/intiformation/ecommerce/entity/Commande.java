@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -30,28 +33,31 @@ public class Commande implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Produit> produits;
+//	@ManyToMany(mappedBy="commandes",cascade=CascadeType.ALL)
+////	@JoinColumn(name="produitId", referencedColumnName="idProduit")
+//	private List<Produit> produits;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne//(cascade = CascadeType.ALL)
+	@JoinColumn(name="clientId", referencedColumnName="idClient")
 	private Client client;
 	
-	@OneToMany(mappedBy="commande")
+	@OneToMany(mappedBy="commande",cascade=CascadeType.ALL)
+//	@JoinColumn(name="ligneCommandeId", referencedColumnName="id")
 	private List<LigneCommande> ligneCommandes;
 
 	//ctor
-	public Commande(Long idCommande, Date dateCommande, List<Produit> produits, Client client) {
+	public Commande(Long idCommande, Date dateCommande, /*List<Produit> produits, */Client client) {
 		super();
 		this.idCommande = idCommande;
 		this.dateCommande = dateCommande;
-		this.produits = produits;
+//		this.produits = produits;
 		this.client = client;
 	}
 
-	public Commande(Date dateCommande, List<Produit> produits, Client client) {
+	public Commande(Date dateCommande, /*List<Produit> produits,*/ Client client) {
 		super();
 		this.dateCommande = dateCommande;
-		this.produits = produits;
+//		this.produits = produits;
 		this.client = client;
 	}
 
@@ -76,13 +82,13 @@ public class Commande implements Serializable{
 		this.dateCommande = dateCommande;
 	}
 
-	public List<Produit> getProduits() {
-		return produits;
-	}
-
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
-	}
+//	public List<Produit> getProduits() {
+//		return produits;
+//	}
+//
+//	public void setProduits(List<Produit> produits) {
+//		this.produits = produits;
+//	}
 
 	public Client getClient() {
 		return client;

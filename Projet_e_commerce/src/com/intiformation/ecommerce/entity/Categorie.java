@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,7 +34,8 @@ public class Categorie implements Serializable{
     @Column(name="description")
 	private String description;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="categorie",cascade=CascadeType.ALL)
+//    @JoinColumn(name="produitId", referencedColumnName="idProduit")
     private List<Produit> produits;
 
     //ctor
