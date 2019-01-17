@@ -44,6 +44,7 @@ public class LigneCommande implements Serializable{
 	@OneToOne(cascade = CascadeType.ALL)
 	private GestionPanier panier;
 
+	
 	//ctor
 	public LigneCommande(LigneCommandeProduit id, Produit produit, Commande commande, int quantite, int prix,
 			GestionPanier panier) {

@@ -35,6 +35,9 @@ public class Commande implements Serializable{
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Client client;
+	
+	@OneToMany(mappedBy="commande")
+	private List<LigneCommande> ligneCommandes;
 
 	//ctor
 	public Commande(Long idCommande, Date dateCommande, List<Produit> produits, Client client) {
@@ -87,6 +90,14 @@ public class Commande implements Serializable{
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	public List<LigneCommande> getLigneCommandes() {
+		return ligneCommandes;
+	}
+
+	public void setLigneCommandes(List<LigneCommande> ligneCommandes) {
+		this.ligneCommandes = ligneCommandes;
 	}
 	
 	
