@@ -11,7 +11,7 @@ public class AppTestEntity {
 
 	public static void main(String[] args) {
 		// context
-		ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		IAdminCategoriesService catManager = (IAdminCategoriesService) context.getBean("boutiqueDaoBean") ;
 		
