@@ -23,18 +23,27 @@
 	<!--==============================================================-->
 	<!--====== ACTIVER LA DETECTION AUTO DES BEANS (COMPOSANTS) =======-->
 	<!--===============================================================-->
-	<context:component-scan base-package="com.intiformation.ecommerce.entity"/>
-	<context:component-scan base-package="com.intiformation.ecommerce.service"/>
-	<context:component-scan base-package="com.intiformation.ecommerce.dao"/>
-	
+	<context:component-scan base-package="com.intiformation.ecommerce"/>
 
-	<!--==================================================================== -->
-	<!--======= declaration du bean de la session Factory d'hibernate ====== -->
-	<!--==================================================================== -->
-	<bean id="sessionbFactoryBean" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	<!--================================================================================== -->
+	<!--======= declaration du bean de la fabrique de gestionnaires d’entités (EMF) ====== -->
+	<!--================================================================================== -->
+	<bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
 		<!-- 1. injection du bean de la data source -->
 		<property name="dataSource" ref="dataSourceBean" />
+		
+		<!-- 2. définition du provider (ici Hibernate) -->
+		<property name="jpaVendorAdapter">
+		
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			
+				<property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect" />
+				<property name="showSql" value="true" />
+				
+			</bean>
+
+		</property>
 		
 		<!-- 2. définition des proprietes d'hibernate -->
 		<property name="hibernateProperties">
@@ -46,28 +55,37 @@
 		</property>
 
 		<!-- 3. declaration des classes annotés -->
-		<property name="annotatedClasses">
-			<list>
-				<value>com.intiformation.ecommerce.entity.Categorie</value>
-				<value>com.intiformation.ecommerce.entity.Client</value>
-				<value>com.intiformation.ecommerce.entity.Commande</value>
-				<value>com.intiformation.ecommerce.entity.GestionPanier</value>
-				<value>com.intiformation.ecommerce.entity.LigneCommande</value>
-				<value>com.intiformation.ecommerce.entity.LigneCommandeProduit</value>
-				<value>com.intiformation.ecommerce.entity.Produit</value>
-				<value>com.intiformation.ecommerce.entity.Role</value>
-				<value>com.intiformation.ecommerce.entity.User</value>
+<!-- 		<property name="annotatedClasses"> -->
+<!-- 			<list> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.Categorie</value> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.Client</value> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.Commande</value> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.GestionPanier</value> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.LigneCommande</value> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.LigneCommandeProduit</value> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.Produit</value> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.Role</value> -->
+<!-- 				<value>com.intiformation.ecommerce.entity.User</value> -->
 				
-			</list>
-		</property>
+<!-- 			</list> -->
+<!-- 		</property> -->	
+			
+			<!-- 4. les classes annotés  -->
+			<property name="packagesToScan">
+				<list>
+					<value>com.intiformation.ecommerce.entity</value>
+				</list>
+			</property>
 		
 	</bean>
 	
-	<!--===========================================================================-->
-	<!--============ declaration d'un gestionnaire de transactions  ===============-->
-	<!--===========================================================================-->
-	<bean id="transactionManagerBean" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionbFactoryBean"></property>
+		<!--=========================================================================== -->
+	<!--============ declaration d'un gestionnaire de transactions =============== -->
+	<!--=========================================================================== -->
+	<bean id="transactionManagerBean" class="org.springframework.orm.jpa.JpaTransactionManager">
+	
+		<property name="entityManagerFactory" ref="entityManagerFactoryBean" />
+		
 	</bean>
 	
 </beans>

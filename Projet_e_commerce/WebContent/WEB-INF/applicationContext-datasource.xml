@@ -21,7 +21,7 @@
 	</bean>
 	-->
 	
-	<context:property-placeholder location="jdbc.properties"/>
+	<context:property-placeholder location="/WEB-INF/jdbc.properties"/>
 
 
 	<!--===================================================== -->
