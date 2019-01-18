@@ -16,7 +16,7 @@ import com.intiformation.ecommerce.entity.Produit;
 import com.intiformation.ecommerce.entity.Role;
 import com.intiformation.ecommerce.entity.User;
 
-@Service("boutiqueService")
+@Service("boutiqueServiceBean")
 public class BoutiqueServiceImpl implements IAdminCategoriesService {
 
 	@Autowired

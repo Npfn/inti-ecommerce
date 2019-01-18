@@ -18,29 +18,36 @@ import com.intiformation.ecommerce.entity.User;
 
 
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
 
+	@Transactional
 	@Override
 	public void ajouterCategorie(Categorie c) {
 		em.persist(c);
 		
 	}
 
+	@Transactional
 	@Override
 	public List<Categorie> listCategories() {
 		Query query = em.createQuery("select c from Categorie c");
 		return query.getResultList();
 	}
 
+	@Transactional
 	@Override
 	public Categorie getCategorie(Long idCat) {
 		return em.find(Categorie.class, idCat);
 	}
 
+	@Transactional
 	@Override
 	public void supprimerCategorie(Long idcat) {
 		Categorie c = em.find(Categorie.class, idcat);
@@ -48,12 +55,14 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 			
 	}
 
+	@Transactional
 	@Override
 	public void modifierCategorie(Categorie c) {
 		em.merge(c);
 		
 	}
 
+	@Transactional
 	@Override
 	public void ajouterProduit(Produit p, Long idCat) {
 		Categorie c = getCategorie(idCat);
@@ -62,12 +71,14 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 		
 	}
 
+	@Transactional
 	@Override
 	public List<Produit> listproduits() {
 		Query query = em.createQuery("select p from Produit p");
 		return query.getResultList();
 	}
 
+	@Transactional
 	@Override
 	public List<Produit> produitsParMotCle(String mc) {
 		Query query = em.createQuery("select p from Produit p where p.designation like :x or p.description like :x");
@@ -75,6 +86,7 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 		return query.getResultList();
 	}
 
+	@Transactional
 	@Override
 	public List<Produit> produitsParCategorie(Long idCat) {
 		Query query = em.createQuery("select p from Produit p where p.categorie.idCategorie =:x ");
@@ -82,18 +94,21 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 		return query.getResultList();
 	}
 
+	@Transactional
 	@Override
 	public List<Produit> produitsSelectionnes() {
 		Query query = em.createQuery("select p from Produit p where p.selectionne = true ");
 		return query.getResultList();
 	}
 
+	@Transactional
 	@Override
 	public Produit getProduit(Long idP) {
 	
 		return em.find(Produit.class, idP);
 	}
 
+	@Transactional
 	@Override
 	public void supprimerProduit(Long idP) {
 		Produit p = getProduit(idP);
@@ -101,18 +116,21 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 		
 	}
 
+	@Transactional
 	@Override
 	public void modifierProduit(Produit p) {
 		em.merge(p);
 		
 	}
 
+	@Transactional
 	@Override
 	public void ajouterUser(User u) {
 		em.persist(u);
 		
 	}
 
+	@Transactional
 	@Override
 	public void attribuerRole(Role r, Long userID) {
 		User u = em.find(User.class, userID);
@@ -121,6 +139,7 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 		
 	}
 
+	@Transactional
 	@Override
 	public Commande enregistrerCommande(GestionPanier p, Client cld) {
 		em.persist(cld);
