@@ -13,7 +13,7 @@ public class AppTestEntity {
 		// context
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:applicationContext.xml");
 		
-		IAdminCategoriesService catManager = (IAdminCategoriesService) context.getBean("boutiqueServiceBean") ;
+		IAdminCategoriesService catManager = (IAdminCategoriesService) context.getBean("boutiqueDaoBean") ;
 		
 		
 		// ajout user
