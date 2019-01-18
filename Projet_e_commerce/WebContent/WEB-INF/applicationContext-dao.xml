@@ -8,10 +8,10 @@
 	<!--==================================================================== -->
 	<!--=======     declaration du bean de la couche dao         =========== -->
 	<!--==================================================================== -->
-	<bean id="employeDaoBean" class="com.intiformation.orm.dao.EmployeDAOImpl">
+	<bean id="boutiqueDaoBean" class="com.intiformation.ecommerce.dao.BoutiqueDAOImpl">
 		
 		<!-- injection de la session factory  -->
-		<property name="sessionFactory" ref="sessionbFactroyBean"/>
+		<property name="sessionFactory" ref="sessionbFactoryBean"/>
 	
 	</bean>
 

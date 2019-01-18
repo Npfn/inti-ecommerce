@@ -10,6 +10,7 @@
 	<import resource="applicationContext-datasource.xml"/>
 	<import resource="applicationContext-hibernate.xml"/>
 	<import resource="applicationContext-dao.xml"/>
+	<import resource="applicationContext-service.xml"/>
 	
 </beans>
 
