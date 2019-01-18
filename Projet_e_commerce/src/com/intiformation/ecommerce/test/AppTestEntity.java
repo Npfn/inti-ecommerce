@@ -11,9 +11,9 @@ public class AppTestEntity {
 
 	public static void main(String[] args) {
 		// context
-		ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		IAdminCategoriesService catManager = (IAdminCategoriesService) context.getBean("boutiqueServiceBean") ;
+//		IAdminCategoriesService catManager = (IAdminCategoriesService) context.getBean("boutiqueServiceBean") ;
 		
 		
 		// ajout user
@@ -21,8 +21,8 @@ public class AppTestEntity {
 		User user2 = new User("Vestoing48", "Cuo4Ahsi", true, null) ;
 		
 		
-		catManager.addUser(user1);
-		catManager.addUser(user2);
+//		catManager.addUser(user1);
+//		catManager.addUser(user2);
 		
 
 		
