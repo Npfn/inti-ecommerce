@@ -24,8 +24,7 @@ public class GestionPanier implements Serializable{
 	private Long idGestionPanier;
 	
 	//champs
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="ligneId")
+	@OneToMany(mappedBy="panier", cascade = CascadeType.ALL)
 	private List<LigneCommande> ligneCommandes;
 
 	//ctor

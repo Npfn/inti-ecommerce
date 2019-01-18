@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
@@ -41,8 +42,9 @@ public class LigneCommande implements Serializable{
 	@Column(name="prix")
 	private int prix;
 	
-//	@OneToOne//(cascade = CascadeType.ALL)
-//	private GestionPanier panier;
+	@ManyToOne
+	@JoinColumn(name="panierId", referencedColumnName="idGestionPanier")
+	private GestionPanier panier;
 
 	
 	//ctor

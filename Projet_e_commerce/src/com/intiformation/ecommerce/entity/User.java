@@ -20,7 +20,7 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="user_id")
+	@Column(name="idUser")
 	private Long idUser;
 	
 	@Column(name="username")
@@ -31,9 +31,8 @@ public class User implements Serializable {
 	
 	private boolean actived; 
 	
-	@OneToMany(cascade=CascadeType.ALL)//(mappedBy="user",cascade=CascadeType.ALL)
-	@JoinColumn(name="roleId")
-	private List<Role> roles= new ArrayList<>();
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	private List<Role> roles ;
 
 	public User(Long idUser, String username, String password, boolean actived, List<Role> roles) {
 		super();

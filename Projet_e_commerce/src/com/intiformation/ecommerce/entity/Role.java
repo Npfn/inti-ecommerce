@@ -8,8 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity(name="Role") //nom de l'entité si requete
 @Table(name="Role") //nom de la table
@@ -24,9 +27,9 @@ public class Role implements Serializable{
 	@Column(name="roleName")
 	private String roleName;
 	
-//	@OneToOne
-//	@JoinColumn(name="userId", referencedColumnName="user_id")
-//	private User user;
+	@ManyToOne
+	@JoinColumn(name="userId", referencedColumnName="idUser")
+	private User user;
 	
 	
 	public Role() {
