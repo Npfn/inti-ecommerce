@@ -18,6 +18,7 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User implements Serializable {
 	
+	//champs
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idUser")
@@ -31,6 +32,7 @@ public class User implements Serializable {
 	
 	private boolean actived; 
 	
+	//association
 	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
 	private List<Role> roles ;
 

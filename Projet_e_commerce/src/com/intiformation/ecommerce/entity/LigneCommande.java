@@ -23,10 +23,12 @@ import javax.persistence.Table;
 //@Inheritance(strategy=InheritanceType.JOINED)
 public class LigneCommande implements Serializable{
 
+	
 	//champs de création de la table 
 	@EmbeddedId
 	private LigneCommandeProduit id;
 	
+	//association
 	@ManyToOne(fetch = FetchType.LAZY)
     @MapsId("idProduit")
     private Produit produit;

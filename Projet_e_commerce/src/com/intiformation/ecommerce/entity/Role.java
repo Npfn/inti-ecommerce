@@ -27,6 +27,7 @@ public class Role implements Serializable{
 	@Column(name="roleName")
 	private String roleName;
 	
+	//association
 	@ManyToOne
 	@JoinColumn(name="userId", referencedColumnName="idUser")
 	private User user;

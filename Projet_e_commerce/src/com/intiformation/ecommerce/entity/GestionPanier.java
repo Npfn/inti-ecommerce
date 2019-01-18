@@ -18,12 +18,14 @@ import javax.persistence.Table;
 @Table(name="gestionPanier") //nom de la table
 public class GestionPanier implements Serializable{
 	
+	
+	//champs	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idGestionPanier")
 	private Long idGestionPanier;
 	
-	//champs
+	//association
 	@OneToMany(mappedBy="panier", cascade = CascadeType.ALL)
 	private List<LigneCommande> ligneCommandes;
 
