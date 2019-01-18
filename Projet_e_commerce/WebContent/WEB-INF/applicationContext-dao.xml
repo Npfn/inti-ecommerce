@@ -4,13 +4,17 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!--==================================================================== -->
-	<!--=======     Import des fichiers de configuration de beans   ======== -->
-	<!--==================================================================== -->
-	<import resource="applicationContext-datasource.xml"/>
-	<import resource="applicationContext-hibernate.xml"/>
-	<import resource="applicationContext-dao.xml"/>
 	
+	<!--==================================================================== -->
+	<!--=======     declaration du bean de la couche dao         =========== -->
+	<!--==================================================================== -->
+	<bean id="employeDaoBean" class="com.intiformation.orm.dao.EmployeDAOImpl">
+		
+		<!-- injection de la session factory  -->
+		<property name="sessionFactory" ref="sessionbFactroyBean"/>
+	
+	</bean>
+
 </beans>
 
 
