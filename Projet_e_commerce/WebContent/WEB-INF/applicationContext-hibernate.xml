@@ -23,7 +23,9 @@
 	<!--==============================================================-->
 	<!--====== ACTIVER LA DETECTION AUTO DES BEANS (COMPOSANTS) =======-->
 	<!--===============================================================-->
-	<context:component-scan base-package="com.intiformation.ecommerce"/>
+	<context:component-scan base-package="com.intiformation.ecommerce.dao"/>
+	<context:component-scan base-package="com.intiformation.ecommerce.entity"/>
+	<context:component-scan base-package="com.intiformation.ecommerce.service"/>
 
 	<!--================================================================================== -->
 	<!--======= declaration du bean de la fabrique de gestionnaires d’entités (EMF) ====== -->
@@ -45,15 +47,18 @@
 
 		</property>
 		
-		<!-- 2. définition des proprietes d'hibernate -->
-		<property name="hibernateProperties">
+		
+	<!-- 3. propriétés JPA -->
+		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.dialect">${jdbc.hibernate.dialect}</prop>
-				<prop key="hibernate.show_sql">${jdbc.hibernate.show_sql}</prop>
 				<prop key="hibernate.hbm2ddl.auto">${jdbc.hibernate.hbm2ddl}</prop>
+				<prop key="hibernate.show_sql">${jdbc.hibernate.show_sql}</prop>
+				<!-- formattage du SQL dans la console -->
+<!-- 				<prop key="hibernate.format_sql">${jdbc.hibernate.format_sql}</prop> -->
 			</props>
 		</property>
-
+		
 		<!-- 3. declaration des classes annotés -->
 <!-- 		<property name="annotatedClasses"> -->
 <!-- 			<list> -->
