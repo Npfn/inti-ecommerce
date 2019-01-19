@@ -153,6 +153,10 @@ public class BoutiqueDAOImpl  implements IBoutiqueDAO {
 		em.persist(c);
 		return c;
 	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
 	
 	
 	
