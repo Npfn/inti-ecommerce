@@ -8,9 +8,9 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			/WEB-INF/applicationContext-datasource.xml
-			/WEB-INF/applicationContext-dao.xml
+<!-- 			/WEB-INF/applicationContext-dao.xml -->
 			/WEB-INF/applicationContext-hibernate.xml
-			/WEB-INF/applicationContext-source.xml
+<!-- 			/WEB-INF/applicationContext-source.xml -->
 			/WEB-INF/applicationContext.xml
 		</param-value>
 	</context-param>

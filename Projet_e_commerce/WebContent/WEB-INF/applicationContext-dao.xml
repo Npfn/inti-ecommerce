@@ -11,7 +11,7 @@
 	<bean id="boutiqueDaoBean" class="com.intiformation.ecommerce.dao.BoutiqueDAOImpl">
 		
 		
-	<property name="em" ref="entityManagerFactoryBean"></property>
+<!-- 	<property name="em" ref="entityManagerFactoryBean"></property> -->
 	
 	</bean>
 
